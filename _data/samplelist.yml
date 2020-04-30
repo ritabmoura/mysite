@@ -2,7 +2,7 @@ docs_list_title: navigation
 docs:
 
 - title: Homepage
-  url: homepage.html
+  url: index.html
 
 - title: About me
   url: aboutme.html
