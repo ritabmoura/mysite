@@ -1,0 +1,85 @@
+@import "colors";
+
+@mixin myfont {
+    font-family: 'Barlow', sans-serif;
+    color: $c-secondary;
+}
+
+@mixin heading1 {
+    @include myfont;
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 700;
+}
+
+@mixin heading2 {
+    @include myfont;
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+@mixin heading3 {
+    @include myfont;
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+@mixin heading4 {
+    @include myfont;
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+@mixin heading5 {
+    @include myfont;
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+@mixin paragraph-bold {
+    @include myfont;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 700;
+}
+
+@mixin paragraph {
+    @include myfont;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
+}
+
+@mixin paragraph-highlight {
+    @include myfont;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
+    color: $c-primary;
+}
+
+@mixin paragraph-link {
+    @include myfont;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+@mixin caption-bold {
+    @include myfont;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 700;
+}
+
+@mixin caption {
+    @include myfont;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+}

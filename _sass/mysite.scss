@@ -1,0 +1,44 @@
+@import "colors";
+@import "typography";
+@import "spacing";
+@import "shadows";
+
+body {
+    @include myfont;
+}
+
+h1 {
+    @include heading1;
+}
+
+h2 {
+    @include heading2;
+}
+
+h3 {
+    @include heading3;
+}
+
+h4 {
+    @include heading4;
+}
+
+h5 {
+    @include heading5;
+}
+
+p {
+    @include paragraph;
+}
+
+time {
+    @include paragraph-highlight;
+}
+
+caption, figcaption {
+    @include caption;
+}
+
+.job_title {
+    @include paragraph-bold;
+}
