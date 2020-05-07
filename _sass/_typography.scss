@@ -3,6 +3,7 @@
 @mixin myfont {
     font-family: 'Barlow', sans-serif;
     color: $c-secondary;
+    margin: 0;
 }
 
 @mixin heading1 {

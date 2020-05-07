@@ -5,6 +5,41 @@
 
 body {
     @include myfont;
+    background-color: $c-tertiary;
+    margin: 0px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: $sp-s;
+    margin: $sp-xl $sp-l $sp-xl $sp-l;
+}
+
+.content_wrapper {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: $sp-s;
+    margin: $sp-xxx $sp-l $sp-xxx $sp-l;
+    color: $c-secondary2;
+
+    div, p {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        @include caption;
+        color: $c-secondary3;
+    }
+
+    div {
+        height: 1px;
+        background-color: $c-secondary3;
+        margin-bottom: $sp-m;
+    }
 }
 
 h1 {
@@ -39,6 +74,98 @@ caption, figcaption {
     @include caption;
 }
 
-.job_title {
-    @include paragraph-bold;
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.intro {
+    h2 {
+        padding-bottom: $sp-s;
+    }
+    .intro_photo {
+        padding: $sp-xl 0 $sp-xl 0;
+    }
+}
+
+.profile {
+    padding-bottom: $sp-xl;
+    
+    .profile_pic {
+        display: flex;
+        flex-direction: row;
+
+        .photo {
+            grid-column-start: 1;
+            grid-column-end: 2.5;
+        }
+        .photo_description {
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+    }
+    .profile_description {
+        padding-top: $sp-xl;
+        p:first-child {
+            padding-bottom: $sp-m;
+        }
+    }
+}
+
+.mybackground {
+    h2 {
+        color: $c-primary;
+        padding: $sp-m 0 $sp-m 0;
+    }
+    li {
+        padding-bottom: $sp-l;
+    }
+    .job_duration {
+        @include paragraph-highlight;
+        padding-bottom: $sp-xs;
+    }
+    .job_title {
+        @include paragraph-bold;
+    }
+}
+
+.mylinks {
+    padding-top: $sp-xxl;
+}
+
+.projects {
+    img {
+        padding: $sp-m 0 $sp-m 0;
+    }
+    li {
+        padding-bottom: 72px;
+    }
+}
+
+.other_projects {
+    h2 {
+        color: $c-primary;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap; 
+    }
+    figure {
+        padding: 0;
+    }
+}
+
+.mycontacts {
+    h2 {
+        padding-bottom: $sp-xs;
+    }
+    ul {
+        padding-top: $sp-xl;
+        li {
+            padding-bottom: $sp-l;
+        }
+    }
+    .outro_photo {
+        padding-top: $sp-xl;
+    }
 }
