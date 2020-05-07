@@ -1,7 +1,7 @@
 @import "colors";
 
 @mixin myfont {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Barlow', Arial, Helvetica, sans-serif;
     color: $c-secondary;
     margin: 0;
 }
