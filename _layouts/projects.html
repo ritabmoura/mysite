@@ -5,83 +5,17 @@ layout: default
 <div class="content_wrapper">
    
     <section class="projects">
-        <ul>
-            <li class="evaristo">
-                <h2>Evaristo</h2>
-                <p class="project_subtitle">UX Project on Mobility</p>
-                <a href="https://www.behance.net/gallery/93516793/Evaristo-App" target="_blank" title="Evaristo">
-                    <img class="" src="" alt="Evaristo Project thumbnail">
-                </a>
-                <p class="project_description">Mobile app. Drawing commuters to public transports and benefiting local commerce. Making Lisbon a more sustainable and accessible city.</p>
-            </li>
-            <li class="squareroot">
-                <h2>Square Root</h2>
-                <p class="project_subtitle">UI Project – Design System</p>
-                <a href="https://www.behance.net/gallery/93123285/Square-Root" target="_blank" title="Square Root">
-                    <img class="" src="" alt="Square Root Project thumbnail">
-                </a>
-                <p class="project_description">Design System. A set of patterns and practices to serve the purpose of a digital product: the magic cube.</p>
-            </li>
-        </ul>
+        {%- include myprojects.html -%}
     </section>
 
     <section class="other_projects">
-        <h2>Other Projects</h2>
-        <ul>
-            <li class="room">
-                <figure>
-                    <figcaption><strong>Room</strong> / Editorial</figcaption>
-                    <a href="https://www.behance.net/gallery/79317633/ROOM" target="_blank" title="Room">
-                        <img class="" src="" alt="Room Book thumbnail">
-                    </a>
-                </figure>
-            </li>
-            <li class="thefear">
-                <figure>
-                    <figcaption><strong>The Fear</strong> / Illustration</figcaption>
-                    <a href="https://www.behance.net/gallery/79321985/O-MEDO" target="_blank" title="The Fear">
-                        <img class="" src="" alt="The Fear Book thumbnail">
-                    </a>
-                </figure>
-            </li>
-            <li class="iceland">
-                <figure>
-                    <figcaption><strong>Iceland</strong> / Photography</figcaption>
-                    <a href="https://www.behance.net/gallery/79353605/ICELAND" target="_blank" title="Iceland">
-                        <img class="" src="" alt="Iceland's Landscape">
-                    </a>
-                </figure>
-            </li>
-            <li class="sphere">
-                <figure>
-                    <figcaption><strong>Sphere</strong> / Photography</figcaption>
-                    <a href="https://www.behance.net/gallery/79353605/SPHERE" target="_blank" title="Sphere">
-                        <img class="" src="" alt="Traffic light black & white photo">
-                    </a>
-                </figure>
-            </li>
-            <li class="spotlight">
-                <figure>
-                    <figcaption><strong>Spotlight</strong> / Photography</figcaption>
-                    <a href="https://www.behance.net/gallery/79353605/SPOTLIGHT" target="_blank" title="Spotlight">
-                        <img class="" src="" alt="Feet on the bathroom floor photo with red lighting">
-                    </a>
-                </figure>
-            </li>
-            <li class="woodstock">
-                <figure>
-                    <figcaption><strong>Woodstock</strong> / Photography</figcaption>
-                    <a href="https://www.behance.net/gallery/79353605/WOODSTOCK" target="_blank" title="Woodstock">
-                        <img class="" src="" alt="Woodstock Project thumbnail">
-                    </a>
-                </figure>
-            </li>
-        </ul>
+        <h1>Other Projects</h1>
+        {%- include myotherprojects.html -%}
     </section>
 
     <div class="mylinks">
         <a href="https://www.behance.net/ritabmoura" target="_blank" title="My behance">
-            <img class="" src="" alt="behance icon">
+            {%- include icon-behance.html-%}
             <p>Check more on Behance</p>
         </a>
     </div>

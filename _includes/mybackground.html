@@ -1,0 +1,9 @@
+<ul>
+    {%- for mybg in site.mybackground reversed -%}
+    <li>
+        <p class="job_duration">{{ mybg.duration }}</p>
+        <p class="job_title">{{ mybg.title }}</p>
+        {{ mybg.content }}
+    </li>
+    {%- endfor -%}
+</ul>

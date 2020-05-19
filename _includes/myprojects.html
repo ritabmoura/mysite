@@ -1,0 +1,12 @@
+<ul>
+    {%- for myproject in site.myprojects reversed -%}
+    <li>
+        <h1>{{ myproject.title }}</h1>
+        <h2 class="project_subtitle">{{ myproject.subtitle }}</h2>
+        <a href="{{ myproject.link }}" target="_blank" title="{{ myproject.linktitle }}">
+            <img class="project_image" src="{{ myproject.image-src }}" alt="{{ myproject.image-alt }}">
+        </a>
+        {{ myproject.content }}
+    </li>
+    {%- endfor -%}
+</ul>

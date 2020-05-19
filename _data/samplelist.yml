@@ -1,14 +1,18 @@
 docs_list_title: navigation
 docs:
 
-- title: Homepage
+- title: Home
   url: index.html
+  icon: icon-home.html
 
 - title: About me
   url: aboutme.html
+  icon: icon-aboutme.html
 
 - title: Projects
   url: projects.html
+  icon: icon-projects.html
 
 - title: Contacts
   url: contacts.html
+  icon: icon-contacts.html

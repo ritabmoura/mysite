@@ -10,6 +10,24 @@ body {
     padding: 0;
 }
 
+header {
+    background-color: white;
+    max-width: 100%;
+    padding: $sp-xs $sp-l $sp-xs $sp-l;
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        a {
+        text-decoration: none;
+        @include caption;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        }
+    }
+}
+
 main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -44,23 +62,7 @@ footer {
 }
 
 h1 {
-    @include heading1;
-}
-
-h2 {
     @include heading2;
-}
-
-h3 {
-    @include heading3;
-}
-
-h4 {
-    @include heading4;
-}
-
-h5 {
-    @include heading5;
 }
 
 p {
@@ -81,9 +83,16 @@ ul {
     margin: 0;
 }
 
+img {
+    max-width: 100%;
+}
+
 .intro {
-    h2 {
+    h1 {
         padding-bottom: $sp-s;
+    }
+    h2 {
+        @include paragraph;
     }
     .intro_photo {
         padding: $sp-xl 0 $sp-xl 0;
@@ -115,7 +124,7 @@ ul {
 }
 
 .mybackground {
-    h2 {
+    h1 {
         color: $c-primary;
         padding: $sp-m 0 $sp-m 0;
     }
@@ -133,9 +142,22 @@ ul {
 
 .mylinks {
     padding-top: $sp-xxl;
+    a {
+        text-decoration: none;
+        @include paragraph-link;
+        display: flex;
+        flex-direction: row;
+       
+        p {
+            padding-left: 8px;
+        }
+    }
 }
 
 .projects {
+    h2 {
+        @include paragraph;
+    }
     img {
         padding: $sp-m 0 $sp-m 0;
     }
@@ -145,7 +167,7 @@ ul {
 }
 
 .other_projects {
-    h2 {
+    h1 {
         color: $c-primary;
     }
     ul {
@@ -158,8 +180,11 @@ ul {
 }
 
 .mycontacts {
-    h2 {
+    h1 {
         padding-bottom: $sp-xs;
+    }
+    h2 {
+        @include paragraph;
     }
     ul {
         padding-top: $sp-xl;
