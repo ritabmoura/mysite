@@ -1,8 +1,8 @@
  <ul class="mylinks">
-     {%- for mycontact in site.mycontacts -%}
+    {%- for mycontact in site.mycontacts -%}
     <li>
         <a href="{{ mycontact.link }}" target="_blank" title="{{ mycontact.link-title }}">
-            {%- include {{ mycontact.icon}}-%}
+            {%- include {{ mycontact.icon}} -%}
             <p>{{ mycontact.title }}</p>
         </a>
     </li>

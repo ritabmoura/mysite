@@ -3,8 +3,9 @@
       {%- for navigation in site.data.samplelist.docs -%}
          <li>
             <a href="{{ site.baseurl }}/{{ navigation.url }}">
-               {%- include {{ navigation.icon}}-%}
-               {{ navigation.title }}</a>
+               {%- include {{ navigation.icon}} -%}
+               <div>{{ navigation.title }}</div>
+            </a>
          </li>
       {%- endfor -%}
    </ul>

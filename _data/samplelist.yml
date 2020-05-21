@@ -3,16 +3,16 @@ docs:
 
 - title: Home
   url: index.html
-  icon: icon-home.html
+  icon: icon-home.svg
 
 - title: About me
   url: aboutme.html
-  icon: icon-aboutme.html
+  icon: icon-aboutme.svg
 
 - title: Projects
   url: projects.html
-  icon: icon-projects.html
+  icon: icon-projects.svg
 
 - title: Contacts
   url: contacts.html
-  icon: icon-contacts.html
+  icon: icon-contacts.svg

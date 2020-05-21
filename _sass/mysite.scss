@@ -21,8 +21,7 @@ header {
         a {
         text-decoration: none;
         @include caption;
-        display: flex;
-        flex-direction: column;
+        display: block;
         text-align: center;
         }
     }
@@ -167,7 +166,8 @@ img {
 }
 
 .other_projects {
-    h1 {
+    h2 {
+        @include heading2;
         color: $c-primary;
     }
     ul {
