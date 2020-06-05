@@ -12,43 +12,39 @@ body {
 
 header {
     background-color: white;
-    max-width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    max-width: 100vw;
     padding: $sp-xs $sp-l $sp-xs $sp-l;
     ul {
+        max-width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        
         a {
-        text-decoration: none;
-        @include caption;
-        display: block;
-        text-align: center;
+            text-decoration: none;
+            @include caption;
+            display: block;
+            text-align: center;
         }
     }
 }
 
 main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: $sp-s;
     margin: $sp-xl $sp-l $sp-xl $sp-l;
+    max-width: 1440px;
 }
 
-.content_wrapper {
-    grid-column-start: 1;
-    grid-column-end: 5;
-}
+// .content_wrapper {}
 
 footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: $sp-s;
     margin: $sp-xxx $sp-l $sp-xxx $sp-l;
     color: $c-secondary2;
 
     div, p {
-        grid-column-start: 1;
-        grid-column-end: 5;
         @include caption;
         color: $c-secondary2;
     }
@@ -76,14 +72,26 @@ caption, figcaption {
     @include caption;
 }
 
+figure {
+    margin: 0;
+    box-sizing: border-box;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+
+    li {
+        list-style-type: none;
+        padding: 0;
+        margin: 0; 
+    }
 }
 
 img {
     max-width: 100%;
+    border-radius: 8px;
 }
 
 .intro {
@@ -99,21 +107,41 @@ img {
 }
 
 .profile {
-    padding-bottom: $sp-xl;
-    
+    padding-bottom: $sp-xl;    
+
     .profile_photo {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        column-gap: 16px; 
+        grid-template-areas: 
+        "photo photo arrow . ."
+        ". . me me me";
 
         .photo {
-            grid-column-start: 1;
-            grid-column-end: 2.5;
+            grid-area: photo;
+            grid-row-start: 1;
+            grid-row-end: 5;
         }
-        .photo_description {
-            grid-column-start: 3;
-            grid-column-end: 5;
+        .arrow {
+            width: 40px;
+            transform: rotate(70deg);
+            grid-area: arrow; 
+            grid-row-start: 2;
+            grid-row-end: 4;
+            align-self: flex-end;
+            margin-left: $sp-xs;
+        }
+        .me {
+            grid-area: me;
+            grid-row-start: 4;
+            grid-row-end: 5;
+            align-self: flex-end;
+            justify-self: center;
+            line-height: 20px;
         }
     }
+
     .profile_description {
         padding-top: $sp-xl;
         p:first-child {
@@ -157,7 +185,7 @@ img {
     h2 {
         @include paragraph;
     }
-    img {
+    .project_image {
         padding: $sp-m 0 $sp-m 0;
     }
     li {
@@ -169,14 +197,20 @@ img {
     h2 {
         @include heading2;
         color: $c-primary;
+        padding-bottom: $sp-m;
     }
     ul {
-        display: flex;
-        flex-wrap: wrap; 
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 16px; 
+        li {
+            padding-bottom: $sp-m;
+        }           
     }
-    figure {
-        padding: 0;
+    figcaption {
+        padding-bottom: $sp-xs;
     }
+    
 }
 
 .mycontacts {
