@@ -2,9 +2,11 @@
    <ul>
       {%- for navigation in site.data.samplelist.docs -%}
          <li>
-            <a href="{{ site.baseurl }}/{{ navigation.url }}">
+            <a href="{{ site.baseurl }}/{{ navigation.url }}" title="{{ navigation.titlenav }}">
                {%- include {{ navigation.icon}} -%}
                <div>{{ navigation.title }}</div>
+               <div class="nav_mobile">{{ navigation.titlemobile }}</div>
+               <div class="nav_desktop">{{ navigation.titledesktop }}</div>
             </a>
          </li>
       {%- endfor -%}

@@ -4,31 +4,36 @@ layout: default
 
 <div class="content_wrapper">
 
-    <section class="profile">
-        <div class="profile_photo">
-            <figure class="photo">
-                <img src="assets/images/profilepic.png" alt="A picture of me.">
-            </figure>
-            <img class="arrow" src="assets/images/arrow.png" alt="Arrow">
-            <p class="me">Well... That's me!</p>
+    <div class="aboutme_wrapper">
             
-        </div>
-        <div class="profile_description">
-            <p>I’m focused on users and their experiences. Skilled in wireframing and protoyping at varying levels of fidelity. I also have some experience in front-end coding and actually enjoy it.</p>
-            <p>I believe a designer should be fully involved in their projects, meaning their process is felt and translated into the final product. Such ideology underlies my own creative process and work development.</p>
-        </div>
-    </section>
+        <section class="profile">
+            <div class="profile_photo">
+                <figure class="photo">
+                    <img src="assets/images/profilepic.png" alt="A picture of me.">
+                </figure>
+                <img class="arrow" src="assets/images/arrow.png" alt="Arrow">
+                <p class="me">Well... That's me!</p>
+            </div>
+        </section>
 
-    <section class="mybackground">
-        <h1>My background</h1>
-        {%- include mybackground.html -%}
-    </section>
+        <section class="mytext">
+            <div class="profile_description">
+                <p>I’m focused on users and their experiences. Skilled in wireframing and protoyping at varying levels of fidelity. I also have some experience in front-end coding and actually enjoy it.</p>
+                <p>I believe a designer should be fully involved in their projects, meaning their process is felt and translated into the final product. Such ideology underlies my own creative process and work development.</p>
+            </div>
 
-    <div class="mylinks">
-        <a href="" target="_blank" title="CV Download">
-            {%- include icon-download.svg -%}
-            <p>Download my CV</p>
-        </a>
+            <div class="mybackground">
+                <h1>My background</h1>
+                {%- include mybackground.html -%}
+            </div>
+
+            <div class="mylinks">
+                <a href="https://www.linkedin.com/in/ritabmoura/" target="_blank" title="LinkedIn Profile">
+                    {%- include icon-linkedin.svg -%}
+                    <p>See my LinkedIn profile</p>
+                </a>
+            </div>
+        </section>
     </div>
 
 </div>

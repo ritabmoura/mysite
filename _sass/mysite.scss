@@ -18,17 +18,28 @@ header {
     left: 0;
     max-width: 100vw;
     padding: $sp-xs $sp-l $sp-xs $sp-l;
+    z-index: 1;
+
     ul {
         max-width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         
-        a {
+        a:link,
+        a:visited {
             text-decoration: none;
             @include caption;
             display: block;
             text-align: center;
+
+            .nav_desktop {
+                display: none;
+            }
+        }
+
+        .current {
+            color: $c-primary;
         }
     }
 }
@@ -37,8 +48,6 @@ main {
     margin: $sp-xl $sp-l $sp-xl $sp-l;
     max-width: 1440px;
 }
-
-// .content_wrapper {}
 
 footer {
     margin: $sp-xxx $sp-l $sp-xxx $sp-l;
@@ -92,6 +101,7 @@ ul {
 img {
     max-width: 100%;
     border-radius: 8px;
+    width: 100%;
 }
 
 .intro {
@@ -107,16 +117,26 @@ img {
 }
 
 .profile {
-    padding-bottom: $sp-xl;    
+    padding-bottom: $sp-xl; 
 
     .profile_photo {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
-        column-gap: 16px; 
+        column-gap: $sp-s; 
         grid-template-areas: 
         "photo photo arrow . ."
         ". . me me me";
+
+        @keyframes pointing {
+            from {
+                transform: rotate(50deg);
+            }
+            to {
+                transform: rotate(70deg);
+                padding-left: $sp-s;
+            }
+        }
 
         .photo {
             grid-area: photo;
@@ -125,12 +145,12 @@ img {
         }
         .arrow {
             width: 40px;
-            transform: rotate(70deg);
             grid-area: arrow; 
             grid-row-start: 2;
             grid-row-end: 4;
             align-self: flex-end;
             margin-left: $sp-xs;
+            animation: pointing 0.8s ease-in-out infinite;
         }
         .me {
             grid-area: me;
@@ -141,12 +161,12 @@ img {
             line-height: 20px;
         }
     }
+}
 
-    .profile_description {
-        padding-top: $sp-xl;
-        p:first-child {
-            padding-bottom: $sp-m;
-        }
+.profile_description {
+    padding-bottom: $sp-xl;
+    p:first-child {
+        padding-bottom: $sp-m;
     }
 }
 
@@ -169,6 +189,7 @@ img {
 
 .mylinks {
     padding-top: $sp-xxl;
+
     a {
         text-decoration: none;
         @include paragraph-link;
@@ -178,6 +199,11 @@ img {
         p {
             padding-left: 8px;
         }
+    }
+
+    a:hover,
+    a p:hover {
+        color: $c-primary;
     }
 }
 
@@ -190,6 +216,11 @@ img {
     }
     li {
         padding-bottom: 72px;
+
+        a:hover img{
+            box-shadow: 2px 4px 20px $c-shadow;
+            opacity: 0.9;
+        }
     }
 }
 
@@ -205,6 +236,11 @@ img {
         column-gap: 16px; 
         li {
             padding-bottom: $sp-m;
+
+            a:hover img {
+                box-shadow: 2px 4px 20px $c-shadow;
+                opacity: 0.8;
+            }
         }           
     }
     figcaption {
@@ -228,5 +264,292 @@ img {
     }
     .outro_photo {
         padding-top: $sp-xl;
+    }
+}
+
+
+@media (min-width: 750px) {
+
+    header {
+        background-color:$c-tertiary;
+        bottom: inherit;
+        top: 0;
+        padding: 0;
+
+        ul {
+            justify-content: flex-end;
+            padding: $sp-l 0 $sp-l 0;
+
+            li:first-child {
+                flex-basis: 100%;
+                margin-left: $sp-l;
+                div {
+                    text-align: left;
+                }
+            }
+        
+            
+            li a .current {
+                color: red;
+            }
+
+            li a:link,
+            li a:visited {
+                @include paragraph;
+                margin-right: $sp-l;
+                position: relative;
+
+                .icon-navbar {
+                    display: none;
+                }
+                .nav_desktop {
+                    display: block;
+                }
+                .nav_mobile {
+                    display: none;
+                } 
+            }
+           
+            li a div:hover {
+                @include paragraph-bold;
+            }
+
+            li a div::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                background-color: $c-secondary;
+                visibility: hidden;
+                transform: scaleX(0);
+                transition: all 0.2s ease-in-out 0s;
+            }
+
+            li a div:hover::before {
+                visibility: visible;
+                transform: scaleX(1);
+            } 
+        }
+    }
+
+    main {
+        margin-top: calc(#{$sp-xxx*2});
+    }
+
+    .intro,
+    .projects li,
+    .mycontacts {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: $sp-s;
+        grid-template-areas:
+        "title title title title . photo photo photo photo photo photo photo"
+        "subtitle subtitle subtitle subtitle . photo photo photo photo photo photo photo"
+        "description description description description . photo photo photo photo photo photo photo"
+        ". . . . . photo photo photo photo photo photo photo";
+
+        h1 {
+            grid-area: title;
+        }
+
+        h2 {
+            grid-area: subtitle;
+        }
+
+        & > p {
+            grid-area: description;
+            padding-top: $sp-xl;
+        }
+
+        .mylinks {
+            grid-area: description;
+        }
+
+        a,
+        .intro_photo,
+        .outro_photo {
+            grid-area: photo;
+            align-self: center;
+        }
+
+        .intro_photo,
+        .project_image,
+        .outro_photo {
+            padding: 0;
+        }
+
+    }
+
+    .aboutme_wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: $sp-s;
+        grid-template-areas:
+        "myleft myleft myleft myleft myleft myright myright myright myright myright myright .";
+
+        .profile {
+            grid-area: myleft;
+            position: fixed;
+            max-width: 36%;
+
+            .profile_photo {
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-rows: none;
+                padding-right: $sp-xs;
+                grid-template-areas: 
+                ". arrow me me me ."
+                "photo photo photo . . .";
+
+                @keyframes pointing {
+                    from {
+                        transform: rotate(-20deg);
+                    }
+                    to {
+                        transform: rotate(0deg);
+                        padding-left: 0px;
+                    }
+                }
+
+                .photo {
+                    grid-row-start: 2;
+                    grid-row-end: auto;
+                    margin-top: $sp-s;
+                }
+                .arrow {
+                    grid-row-start: auto;
+                    grid-row-end: auto;
+                    justify-self: flex-end;
+                    margin-left: 0;
+                    
+                }
+                .me {
+                    grid-row-start: auto;
+                    grid-row-end: auto;
+                    align-self: flex-start;
+                    justify-self: flex-start;
+                }
+            }
+        }
+
+        .mytext {
+            grid-area: myright;
+            margin-top: $sp-xxl;
+        }
+    }
+
+    .projects_wrapper {
+        .mylinks a {
+            justify-content: center;
+        }
+        .other_projects {
+        
+            ul {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 900px) {
+
+    main {
+        margin: calc(#{$sp-xxx*2}) $sp-xl 0 $sp-xl;
+    }
+
+    footer {
+        margin: $sp-xxx $sp-xl $sp-xxx $sp-xl;
+    }
+
+    h1 {
+        @include heading1;
+    }
+
+    .intro {
+        h2 {
+            @include heading3;
+        }
+    }
+
+    .aboutme_wrapper {
+        .profile {
+            max-width: 336px;
+
+            .profile_photo {
+                column-gap: $sp-m;
+            }
+        }
+    }
+    
+    .projects {
+        li {
+            column-gap: $sp-m;
+        }
+    }
+
+    .other_projects {
+        h2 {
+            @include heading1;
+            color: $c-primary;
+            padding: $sp-xxl 0 $sp-l 0;
+        }
+    
+        ul {
+            column-gap: $sp-m;
+        }
+        figcaption {
+            @include paragraph;
+        }
+    }
+}
+
+
+@media (min-width: 1050px) {
+
+    header {
+        padding: 0 120px 0 120px;
+
+        ul {
+            padding: $sp-xl 0 $sp-xl 0;
+
+            li:first-child {
+                margin-left: 0;
+            }            
+        }
+    }
+
+    main {
+        margin: calc(#{$sp-xxx*2}) 120px 0 120px;
+    }
+
+    footer {
+        margin: $sp-xxx 120px $sp-xxx 120px;
+    }
+
+    .aboutme_wrapper {
+        .profile_photo {
+            column-gap: $sp-l;
+        }
+    }
+    
+    .projects {
+        h2 {
+            @include heading3;
+        }
+        li {
+            column-gap: $sp-l;
+        }
+    }
+
+    .other_projects {
+        h2 {
+            padding: $sp-xxl 0 $sp-xxl 0;
+        }
+        ul {
+            column-gap: $sp-xxl;
+            row-gap: $sp-xxl;
+        }
     }
 }
