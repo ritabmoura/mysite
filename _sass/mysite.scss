@@ -22,10 +22,17 @@ header {
 
     ul {
         max-width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+
         a:link,
         a:visited {
             text-decoration: none;
@@ -33,13 +40,17 @@ header {
             display: block;
             text-align: center;
 
-            .nav_desktop {
+            .home_desktop {
                 display: none;
             }
         }
 
-        .current {
+        li.active a {
             color: $c-primary;
+
+            .icon_path {
+                fill: $c-primary;
+            }
         }
     }
 }
@@ -53,7 +64,8 @@ footer {
     margin: $sp-xxx $sp-l $sp-xxx $sp-l;
     color: $c-secondary2;
 
-    div, p {
+    div,
+    p {
         @include caption;
         color: $c-secondary2;
     }
@@ -83,7 +95,8 @@ caption, figcaption {
 
 figure {
     margin: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 ul {
@@ -105,12 +118,15 @@ img {
 }
 
 .intro {
+
     h1 {
         padding-bottom: $sp-s;
     }
+
     h2 {
         @include paragraph;
     }
+
     .intro_photo {
         padding: $sp-xl 0 $sp-xl 0;
     }
@@ -120,44 +136,81 @@ img {
     padding-bottom: $sp-xl; 
 
     .profile_photo {
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
-        column-gap: $sp-s; 
-        grid-template-areas: 
+        -webkit-column-gap: $sp-s;
+           -moz-column-gap: $sp-s;
+                column-gap: $sp-s; 
+            grid-template-areas: 
         "photo photo arrow . ."
         ". . me me me";
 
-        @keyframes pointing {
+        @-webkit-keyframes pointing {
             from {
-                transform: rotate(50deg);
+                -webkit-transform: rotate(50deg);
+                        transform: rotate(50deg);
             }
             to {
-                transform: rotate(70deg);
+                -webkit-transform: rotate(70deg);
+                        transform: rotate(70deg);
+                padding-left: $sp-s;
+            }
+        }
+
+        @keyframes pointing {
+            from {
+                -webkit-transform: rotate(50deg);
+                        transform: rotate(50deg);
+            }
+            to {
+                -webkit-transform: rotate(70deg);
+                        transform: rotate(70deg);
                 padding-left: $sp-s;
             }
         }
 
         .photo {
+            -ms-grid-row: 1;
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 3;
             grid-area: photo;
-            grid-row-start: 1;
+            -ms-grid-row: 1;
+                grid-row-start: 1;
+            -ms-grid-row-span: 4;
             grid-row-end: 5;
         }
+
         .arrow {
+            -ms-grid-row: 1;
+            -ms-grid-column: 5;
             width: 40px;
             grid-area: arrow; 
-            grid-row-start: 2;
+            -ms-grid-row: 2; 
+                grid-row-start: 2;
+            -ms-grid-row-span: 2;
             grid-row-end: 4;
             align-self: flex-end;
             margin-left: $sp-xs;
-            animation: pointing 0.8s ease-in-out infinite;
+            -webkit-animation: pointing 0.8s ease-in-out infinite;
+                    animation: pointing 0.8s ease-in-out infinite;
         }
+
         .me {
+            -ms-grid-row: 2;
+            -ms-grid-column: 5;
+            -ms-grid-column-span: 5;
             grid-area: me;
-            grid-row-start: 4;
+            -ms-grid-row: 4;
+                grid-row-start: 4;
+            -ms-grid-row-span: 1;
             grid-row-end: 5;
             align-self: flex-end;
-            justify-self: center;
+            -ms-grid-column-align: center;
+                justify-self: center;
             line-height: 20px;
         }
     }
@@ -165,23 +218,28 @@ img {
 
 .profile_description {
     padding-bottom: $sp-xl;
+    
     p:first-child {
         padding-bottom: $sp-m;
     }
 }
 
 .mybackground {
+
     h1 {
         color: $c-primary;
         padding: $sp-m 0 $sp-m 0;
     }
+
     li {
         padding-bottom: $sp-l;
     }
+
     .job_duration {
         @include paragraph-highlight;
         padding-bottom: $sp-xs;
     }
+
     .job_title {
         @include paragraph-bold;
     }
@@ -193,8 +251,13 @@ img {
     a {
         text-decoration: none;
         @include paragraph-link;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
        
         p {
             padding-left: 8px;
@@ -208,41 +271,54 @@ img {
 }
 
 .projects {
+
     h2 {
         @include paragraph;
     }
+
     .project_image {
         padding: $sp-m 0 $sp-m 0;
     }
+
     li {
         padding-bottom: 72px;
 
-        a:hover img{
-            box-shadow: 2px 4px 20px $c-shadow;
+        a:hover img {
+            -webkit-box-shadow: $img-shadow;
+                    box-shadow: $img-shadow;
             opacity: 0.9;
         }
     }
 }
 
 .other_projects {
+
     h2 {
         @include heading2;
         color: $c-primary;
         padding-bottom: $sp-m;
     }
+
     ul {
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr 16px 1fr;
         grid-template-columns: 1fr 1fr;
-        column-gap: 16px; 
+        -webkit-column-gap: 16px;
+           -moz-column-gap: 16px;
+                column-gap: 16px; 
+
         li {
             padding-bottom: $sp-m;
 
             a:hover img {
-                box-shadow: 2px 4px 20px $c-shadow;
+                -webkit-box-shadow: $img-shadow;
+                        box-shadow: $img-shadow;
                 opacity: 0.8;
             }
         }           
     }
+
     figcaption {
         padding-bottom: $sp-xs;
     }
@@ -250,22 +326,28 @@ img {
 }
 
 .mycontacts {
+
     h1 {
         padding-bottom: $sp-xs;
     }
+
     h2 {
         @include paragraph;
     }
+
     ul {
         padding-top: $sp-xl;
+
         li {
             padding-bottom: $sp-l;
         }
     }
+
     .outro_photo {
         padding-top: $sp-xl;
     }
 }
+
 
 
 @media (min-width: 750px) {
@@ -277,35 +359,39 @@ img {
         padding: 0;
 
         ul {
-            justify-content: flex-end;
+            -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                    justify-content: flex-end;
             padding: $sp-l 0 $sp-l 0;
 
+            li {
+                padding-right: $sp-l;
+            }
+
             li:first-child {
-                flex-basis: 100%;
-                margin-left: $sp-l;
+                -ms-flex-preferred-size: 100%;
+                    flex-basis: 100%;
+                padding-left: $sp-l;
+
                 div {
                     text-align: left;
                 }
-            }
-        
-            
-            li a .current {
-                color: red;
             }
 
             li a:link,
             li a:visited {
                 @include paragraph;
-                margin-right: $sp-l;
                 position: relative;
 
                 .icon-navbar {
                     display: none;
                 }
-                .nav_desktop {
+
+                .home_desktop {
                     display: block;
                 }
-                .nav_mobile {
+
+                .home_mobile {
                     display: none;
                 } 
             }
@@ -318,19 +404,40 @@ img {
                 content: "";
                 position: absolute;
                 width: 100%;
+                max-width: 85px;
                 height: 1px;
                 bottom: 0;
                 left: 0;
                 background-color: $c-secondary;
                 visibility: hidden;
-                transform: scaleX(0);
+                -webkit-transform: scaleX(0);
+                    -ms-transform: scaleX(0);
+                        transform: scaleX(0);
+                -webkit-transition: all 0.2s ease-in-out 0s;
+                -o-transition: all 0.2s ease-in-out 0s;
                 transition: all 0.2s ease-in-out 0s;
             }
 
             li a div:hover::before {
                 visibility: visible;
-                transform: scaleX(1);
+                -webkit-transform: scaleX(1);
+                    -ms-transform: scaleX(1);
+                        transform: scaleX(1);
             } 
+
+            li.active a {
+                @include paragraph-bold;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    max-width: 85px;
+                    height: 1px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: $c-secondary;
+                }
+            }
         }
     }
 
@@ -341,10 +448,14 @@ img {
     .intro,
     .projects li,
     .mycontacts {
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr;
         grid-template-columns: repeat(12, 1fr);
-        column-gap: $sp-s;
-        grid-template-areas:
+        -webkit-column-gap: $sp-s;
+           -moz-column-gap: $sp-s;
+                column-gap: $sp-s;
+            grid-template-areas:
         "title title title title . photo photo photo photo photo photo photo"
         "subtitle subtitle subtitle subtitle . photo photo photo photo photo photo photo"
         "description description description description . photo photo photo photo photo photo photo"
@@ -370,8 +481,80 @@ img {
         a,
         .intro_photo,
         .outro_photo {
+            -ms-grid-row: 1;
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 3;
             grid-area: photo;
-            align-self: center;
+            -ms-grid-row-align: center;
+                align-self: center;
+        }
+
+        @media (min-width: 750px){
+
+            .photo {
+                -ms-grid-row: 2;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 3
+            }
+
+            .arrow {
+                -ms-grid-row: 1;
+                -ms-grid-column: 2
+            }
+
+            .me {
+                -ms-grid-row: 1;
+                -ms-grid-column: 3;
+                -ms-grid-column-span: 3
+            }
+
+    h1 {
+                -ms-grid-row: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 7
+
+    }
+
+    h2 {
+                -ms-grid-row: 2;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 7
+
+    }
+
+    & > p {
+                -ms-grid-row: 3;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 7
+
+    }
+
+    .mylinks {
+                -ms-grid-row: 3;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 7
+
+    }
+
+    .intro > a, .projects li > a, .mycontacts > a,
+        .intro > .intro_photo, .projects li > .intro_photo, .mycontacts > .intro_photo,
+        .intro > .outro_photo, .projects li > .outro_photo, .mycontacts > .outro_photo {
+                -ms-grid-row: 1;
+                -ms-grid-row-span: 4;
+                -ms-grid-column: 11;
+                -ms-grid-column-span: 13
+
+    }
+
+            a,
+        .intro_photo,
+        .outro_photo {
+                -ms-grid-row: 2;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 3
+            }
         }
 
         .intro_photo,
@@ -383,10 +566,12 @@ img {
     }
 
     .aboutme_wrapper {
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr $sp-s 1fr;
         grid-template-columns: repeat(12, 1fr);
         grid-column-gap: $sp-s;
-        grid-template-areas:
+            grid-template-areas:
         "myleft myleft myleft myleft myleft myright myright myright myright myright myright .";
 
         .profile {
@@ -395,37 +580,61 @@ img {
             max-width: 36%;
 
             .profile_photo {
+                -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                -ms-grid-rows: none;
                 grid-template-rows: none;
                 padding-right: $sp-xs;
-                grid-template-areas: 
+                    grid-template-areas: 
                 ". arrow me me me ."
                 "photo photo photo . . .";
 
-                @keyframes pointing {
+                @-webkit-keyframes pointing {
                     from {
-                        transform: rotate(-20deg);
+                        -webkit-transform: rotate(-20deg);
+                                transform: rotate(-20deg);
                     }
                     to {
-                        transform: rotate(0deg);
+                        -webkit-transform: rotate(0deg);
+                                transform: rotate(0deg);
+                        padding-left: 0px;
+                    }
+                }
+
+                @keyframes pointing {
+                    from {
+                        -webkit-transform: rotate(-20deg);
+                                transform: rotate(-20deg);
+                    }
+                    to {
+                        -webkit-transform: rotate(0deg);
+                                transform: rotate(0deg);
                         padding-left: 0px;
                     }
                 }
 
                 .photo {
-                    grid-row-start: 2;
+                    -ms-grid-row: 2;
+                        grid-row-start: 2;
+                    -ms-grid-row-span: NaN;
                     grid-row-end: auto;
                     margin-top: $sp-s;
                 }
+
                 .arrow {
-                    grid-row-start: auto;
+                    -ms-grid-row: auto;
+                        grid-row-start: auto;
+                    -ms-grid-row-span: NaN;
                     grid-row-end: auto;
                     justify-self: flex-end;
                     margin-left: 0;
                     
                 }
+
                 .me {
-                    grid-row-start: auto;
+                    -ms-grid-row: auto;
+                        grid-row-start: auto;
+                    -ms-grid-row-span: NaN;
                     grid-row-end: auto;
                     align-self: flex-start;
                     justify-self: flex-start;
@@ -440,21 +649,64 @@ img {
     }
 
     .projects_wrapper {
+
         .mylinks a {
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
         }
+
         .other_projects {
         
             ul {
+                -ms-grid-columns: 1fr 1fr 1fr;
                 grid-template-columns: 1fr 1fr 1fr;
             }
         }
     }
+
+    .intro > .photo, .projects li > .photo, .mycontacts > .photo {
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 4;
+        -ms-grid-column: 11;
+        -ms-grid-column-span: 13
+
+    }
 }
 
 
+
+@media (min-width: 750px){
+
+    .profile {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 9
+    }
+
+    .mytext {
+        -ms-grid-row: 1;
+        -ms-grid-column: 11;
+        -ms-grid-column-span: 11
+    }
+}
+
 @media (min-width: 900px) {
 
+    header {
+
+        ul {
+
+            li {
+                padding-right: $sp-xl;
+            }
+
+            li:first-child {
+                padding-left: $sp-xl;
+            }
+        }
+    }
+    
     main {
         margin: calc(#{$sp-xxx*2}) $sp-xl 0 $sp-xl;
     }
@@ -468,28 +720,36 @@ img {
     }
 
     .intro {
+
         h2 {
             @include heading3;
         }
     }
 
     .aboutme_wrapper {
+
         .profile {
             max-width: 336px;
 
             .profile_photo {
-                column-gap: $sp-m;
+                -webkit-column-gap: $sp-m;
+                   -moz-column-gap: $sp-m;
+                        column-gap: $sp-m;
             }
         }
     }
     
     .projects {
+
         li {
-            column-gap: $sp-m;
+            -webkit-column-gap: $sp-m;
+               -moz-column-gap: $sp-m;
+                    column-gap: $sp-m;
         }
     }
 
     .other_projects {
+
         h2 {
             @include heading1;
             color: $c-primary;
@@ -497,14 +757,16 @@ img {
         }
     
         ul {
-            column-gap: $sp-m;
+            -webkit-column-gap: $sp-m;
+               -moz-column-gap: $sp-m;
+                    column-gap: $sp-m;
         }
+
         figcaption {
             @include paragraph;
         }
     }
 }
-
 
 @media (min-width: 1050px) {
 
@@ -514,8 +776,13 @@ img {
         ul {
             padding: $sp-xl 0 $sp-xl 0;
 
+            li {
+                padding-right: 0;
+                padding-left: $sp-xl;
+            }
+
             li:first-child {
-                margin-left: 0;
+                padding-left: 0;
             }            
         }
     }
@@ -529,26 +796,37 @@ img {
     }
 
     .aboutme_wrapper {
+
         .profile_photo {
-            column-gap: $sp-l;
+            -webkit-column-gap: $sp-l;
+               -moz-column-gap: $sp-l;
+                    column-gap: $sp-l;
         }
     }
     
     .projects {
+
         h2 {
             @include heading3;
         }
+
         li {
-            column-gap: $sp-l;
+            -webkit-column-gap: $sp-l;
+               -moz-column-gap: $sp-l;
+                    column-gap: $sp-l;
         }
     }
 
     .other_projects {
+
         h2 {
             padding: $sp-xxl 0 $sp-xxl 0;
         }
+
         ul {
-            column-gap: $sp-xxl;
+            -webkit-column-gap: $sp-xxl;
+               -moz-column-gap: $sp-xxl;
+                    column-gap: $sp-xxl;
             row-gap: $sp-xxl;
         }
     }

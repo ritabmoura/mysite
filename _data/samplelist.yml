@@ -4,20 +4,20 @@ docs:
 - titlemobile: Home
   titledesktop: Rita Moura
   titlenav: Home
-  url: index.html
+  url: /
   icon: icon-home.svg
 
 - title: About&nbsp;me
   titlenav: About me
-  url: aboutme.html
+  url: /aboutme.html
   icon: icon-aboutme.svg
 
 - title: Projects
   titlenav: Projects
-  url: projects.html
+  url: /projects.html
   icon: icon-projects.svg
 
 - title: Contacts
   titlenav: Contacts
-  url: contacts.html
+  url: /contacts.html
   icon: icon-contacts.svg
